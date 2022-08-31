@@ -2,9 +2,11 @@ var celulas=[];
 var tamanho_celulas=10;
 var linhas;
 var colunas;
+const COR_ESCURA="#001c15";
+const COR_CLARA="#0Fc411";
 
 function setup() {
-  createCanvas(720,480);
+  canva=createCanvas(720,480);
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
   for(let i=0;i<linhas;i++){
@@ -16,16 +18,17 @@ function setup() {
   print(celulas);
   button = createButton('Limpar Tudo');
   button.size(150,40);
-  button.position(20,height+40);
+  
 }
 
 function draw() {
-  background(0);
+  clear();
+  background(COR_ESCURA);
   for(let i=0;i<linhas;i++){
     for(let j=0;j<colunas;j++){
-      stroke(55);
+      stroke(COR_ESCURA);
       if(celulas[i][j]){
-        fill(240);
+        fill(COR_CLARA);
       }else{
         noFill();
       }
@@ -33,6 +36,7 @@ function draw() {
     }
   }
   button.mousePressed(limpaCelulas);
+  button.position(windowWidth/2-button.width/2,height+120);
 }
 
 function mousePressed(){
