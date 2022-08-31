@@ -20,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background(40);
+  background(0);
   for(let i=0;i<linhas;i++){
     for(let j=0;j<colunas;j++){
       stroke(55);
