@@ -14,6 +14,9 @@ function setup() {
     }
   }
   print(celulas);
+  button = createButton('Limpar Tudo');
+  button.size(150,40);
+  button.position(20,height+20);
 }
 
 function draw() {
@@ -29,10 +32,23 @@ function draw() {
       rect(j*tamanho_celulas,i*tamanho_celulas,tamanho_celulas);
     }
   }
+  button.mousePressed(limpaCelulas);
 }
 
 function mousePressed(){
-  let celulaX=floor(mouseX/tamanho_celulas);
-  let celulaY=floor(mouseY/tamanho_celulas);
-  celulas[celulaY][celulaX]=true;
+  if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
+    let celulaX=floor(mouseX/tamanho_celulas);
+    let celulaY=floor(mouseY/tamanho_celulas);
+    celulas[celulaY][celulaX]=!celulas[celulaY][celulaX];
+  }
 }
+
+function limpaCelulas(){
+  for(let i=0;i<linhas;i++){
+    celulas[i]=[];
+    for(let j=0;j<colunas;j++){
+      celulas[i][j]=false;
+    }
+  }
+}
+
