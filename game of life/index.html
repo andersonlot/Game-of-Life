@@ -4,20 +4,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js example</title>
+  <title>Game of Life</title>
   <style>
     body {
-      padding: 0;
-      margin: 0;
+      position:relative;
+      background-color: #043911;
+      margin:10px;
     }
+    canvas {
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .titulo{
+      width:800px;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size:50px;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(145, 148, 134); 
+    }
+
   </style>
-  <script src="../p5.js"></script>
-  <!-- <script src="../addons/p5.sound.js"></script> -->
-  <script src="sketch.js"></script>
+    <script src="../p5.js"></script>
+    <script src="sketch.js"></script>
 </head>
 
 <body>
   <main>
+    <div class="titulo">Game of Life</div>
+    
   </main>
 </body>
 

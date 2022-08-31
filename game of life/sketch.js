@@ -16,7 +16,7 @@ function setup() {
   print(celulas);
   button = createButton('Limpar Tudo');
   button.size(150,40);
-  button.position(20,height+20);
+  button.position(20,height+40);
 }
 
 function draw() {
