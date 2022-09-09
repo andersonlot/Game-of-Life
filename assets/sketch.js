@@ -6,7 +6,8 @@ const COR_ESCURA="#001c15";
 const COR_CLARA="#0Fc411";
 
 function setup() {
-  canva=createCanvas(720,480);
+  canvas=createCanvas(720,480);
+  canvas.parent('canvas');
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
   for(let i=0;i<linhas;i++){

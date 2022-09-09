@@ -3,41 +3,84 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game of Life</title>
-  <style>
-    body {
-      position:relative;
-      background-color: #02271e;
-      margin:10px;
-    }
-    canvas {
-      margin-top: 40px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-    }
-    .titulo{
-      width:800px;
-      margin-top: 40px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      font-size:50px;
-      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      color: rgb(145, 148, 134); 
-    }
-
-  </style>
-    <script src="p5.js"></script>
-    <script src="sketch.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title tabindex="1">Game of Life</title>
 </head>
 
 <body>
   <main>
-    <div class="titulo">Game of Life</div>
-    
+
+
   </main>
+</body>
+
+</html>
+
+
+<body>
+
+  <!-- logo -->
+  <header id="lockup">
+    <div class="logo">
+      <video autoplay muted loop height="60">
+        <source src="assets/logo_animado.mp4" type="video/mp4">
+      </video>
+    </div>
+  </header>
+  <!-- close logo -->
+  <div class="container">
+    <!-- site navigation -->
+    <div class="column-span">
+      <nav>
+        <ul>
+          <li><a class="menu" href="../../">Inicio</a></li>
+          <li><a class="menu" href="pages/projetos.html">Projetos</a></li>
+          <li><a class="menu" href="../Game-of-Life">Outro</a></li>
+          <li><a class="menu-ativo" href="">Teste</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li><a class="menu" href="https://andersonlot.wordpress.com">Blog</a></li>
+          <li><a class="menu" href="https://br.linkedin.com/in/anderson-lot-roman-075928152">LinkedIn</a></li>
+          <li><a class="menu" href="../Game-of-Life">Teste</a></li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+      <script src="assets/p5.js"></script>
+      <script src="assets/sketch.js"></script>
+      <div id="home-page">
+        <h1>Game of Life</h1>
+        <p>Nesse projeto, estou desenvolvendo o algoritmo do Jogo da Vida, ou mais conhecido como Game of Life.</p>
+        <p>O algoritmo consiste em representar um grupo de indivíduos ( células, bactérias, etc) que possuem uma regra
+          para sobrevivência ou não no ambiente que estão inseridos. </p>
+        <p>As regras mais conhecidas foram criadas por John Conway, o criador do Game of Life. Nelas, um indivíduo
+          precisa possuir 2 ou 3 vizinhos vivos para sobreviver à próxima geração. Se tiver menos, morre por solidão e
+          se tiver mais morre por saturação de inndivíduos. Além disso, um indivíduo morto pode ressurgir a vida quando
+          possuir 3 indivíduos vizinhos vivos.</p>
+        <p>O código e o desenvolvimento você pode acompanhar no meu <a class="link-texto"
+            href="https://github.com/andersonlot/Game-of-Life">repo</a> no Github.</p>
+        <p>Abaixo você pode conferir o resultado do desenvolvimento até o momento: </p>
+        <div id="canvas" class="canvas"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <h5 class="sr-only">Acesse também:
+      <a class="link" href="https://andersonlot.wordpress.com" target=_blank class="other-link">
+        Blog
+      </a>
+      <a class="link" href="https://github.com/andersonlot" target=_blank class="other-link">
+        GitHub
+      </a>
+    </h5>
+  </footer>
+
 </body>
 
 </html>
