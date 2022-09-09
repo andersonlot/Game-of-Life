@@ -2,12 +2,12 @@ var celulas=[];
 var tamanho_celulas=10;
 var linhas;
 var colunas;
-const COR_ESCURA="#001c15";
-const COR_CLARA="#0Fc411";
+const COR_ESCURA="#151515";
+const COR_CLARA="#c0b000";
 
 function setup() {
-  canvas=createCanvas(720,480);
-  canvas.parent('canvas');
+  canva=createCanvas(600,480);
+  canva.parent('canvas');
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
   for(let i=0;i<linhas;i++){
@@ -18,7 +18,22 @@ function setup() {
   }
   print(celulas);
   button = createButton('Limpar Tudo');
+  button.parent('botoes');
   button.size(150,40);
+  // alterando estilos div de botoes
+  divBotoes=document.getElementById('botoes');
+  divBotoes.style.margin="20px";
+  //alterando estido botoes
+  button.style('color','#cccccc');
+  button.style('cursor', 'pointer');
+  button.style('background','#202020');
+  button.style('font-weight','600');
+  button.style('font-size','15pt');
+  button.style('border-color','gray');
+  button.style('border-radius','5px');
+  button.style('border-width','2px');
+  
+  
   
 }
 
@@ -36,8 +51,9 @@ function draw() {
       rect(j*tamanho_celulas,i*tamanho_celulas,tamanho_celulas);
     }
   }
+  let divCanvas=document.getElementById("canvas");
   button.mousePressed(limpaCelulas);
-  button.position(windowWidth/2-button.width/2,height+120);
+  //button.position(divCanvas.offsetLeft,divCanvas.offsetTop+height);
 }
 
 function mousePressed(){
