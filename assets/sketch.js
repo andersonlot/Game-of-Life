@@ -2,11 +2,13 @@ var celulas=[];
 var tamanho_celulas=10;
 var linhas;
 var colunas;
+var _loop;
+const canva_width=600;
 const COR_ESCURA="#151515";
 const COR_CLARA="#c0b000";
 
 function setup() {
-  canva=createCanvas(600,480);
+  canva=createCanvas(canva_width,480);
   canva.parent('canvas');
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
@@ -16,23 +18,26 @@ function setup() {
       celulas[i][j]=false;
     }
   }
-  print(celulas);
-  button=[];
-  button[0] = createButton('Limpar Tudo');
-  button[0].parent('botoes');
-  button[1] = createButton('Rodar!');
-  button[1].parent('botoes');
-  // alterando estilos div de botoes
-  divBotoes=document.getElementById('botoes');
-  divBotoes.style.margin="5px";
-  //alterando estido botoes
   //criando uma classe para os botoes
   var style = document.createElement('style');
-  style.type='text/css';
+  //style.type='text/css';
   style.innerHTML = '.create-button{ margin:10px;width:180px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
   document.getElementsByTagName('head')[0].appendChild(style);
-  button[0].class('create-button');
-  button[1].class('create-button');
+  button=[];
+  button[0] = createButton('Limpar Tudo');
+  //button[0].parent('botoes');
+  button[1] = createButton('Rodar!');
+  //button[1].parent('botoes');
+  button[2] = createButton('Pause');
+  //button[1].parent('botoes');
+  button.forEach(element => {
+    element.parent('botoes');
+    element.class('create-button');
+  });
+  // alterando estilos div de botoes
+  divBotoes=document.getElementById('botoes');
+  divBotoes.style.width=canva_width+"px";
+  _loop=false;
 }
 
 function draw() {
@@ -51,6 +56,14 @@ function draw() {
   }
   let divCanvas=document.getElementById("canvas");
   button[0].mousePressed(limpaCelulas);
+  button[1].mousePressed(rodar);
+  if(_loop){
+    console.log("oi loop");
+    return;
+  }
+  console.log("oi");
+  noLoop();
+  
 }
 
 function mousePressed(){
@@ -59,6 +72,7 @@ function mousePressed(){
     let celulaY=floor(mouseY/tamanho_celulas);
     celulas[celulaY][celulaX]=!celulas[celulaY][celulaX];
   }
+  loop();
 }
 
 function limpaCelulas(){
@@ -68,5 +82,13 @@ function limpaCelulas(){
       celulas[i][j]=false;
     }
   }
+  pausar();
+}
+
+function rodar(){
+  _loop=true;
+}
+function pausar(){
+  _loop=false;
 }
 
