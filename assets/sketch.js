@@ -26,7 +26,7 @@ function setup() {
   document.getElementsByTagName('head')[0].appendChild(style);
   button=[];
   button[0] = createButton('Limpar Tudo');
-  button[1] = createButton('Rodar!');
+  button[1] = createButton('Play');
   button[2] = createButton('Pause');
   button.forEach(element => {
     element.parent('botoes');
