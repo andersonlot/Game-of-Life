@@ -3,9 +3,11 @@ var tamanho_celulas=10;
 var linhas;
 var colunas;
 var _loop;
+var geracao=0;
 const canva_width=600;
 const COR_ESCURA="#151515";
 const COR_CLARA="#c0b000";
+
 
 function setup() {
   frameRate(3);
@@ -16,7 +18,7 @@ function setup() {
   for(let i=0;i<linhas;i++){
     celulas[i]=[];
     for(let j=0;j<colunas;j++){
-      celulas[i][j]=false;
+      celulas[i][j]=random()>0.95;
     }
   }
   var style = document.createElement('style');
@@ -48,11 +50,15 @@ function draw() {
       rect(j*tamanho_celulas,i*tamanho_celulas,tamanho_celulas);
     }
   }
+  fill('white');
+  textSize(15);
+  text("Gen: "+geracao,10,20);
   let divCanvas=document.getElementById("canvas");
   button[0].mousePressed(limpaCelulas);
   button[1].mousePressed(rodar);
   button[2].mousePressed(pausar);
   if(_loop){
+    geracao++;
     var celulas_futuro=[];
     for(let i=0;i<linhas;i++){
       celulas_futuro[i]=[];
@@ -80,6 +86,7 @@ function limpaCelulas(){
       celulas[i][j]=false;
     }
   }
+  geracao=0;
   pausar();
 }
 function rodar(){
