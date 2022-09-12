@@ -17,24 +17,22 @@ function setup() {
     }
   }
   print(celulas);
-  button = createButton('Limpar Tudo');
-  button.parent('botoes');
-  button.size(150,40);
+  button=[];
+  button[0] = createButton('Limpar Tudo');
+  button[0].parent('botoes');
+  button[1] = createButton('Rodar!');
+  button[1].parent('botoes');
   // alterando estilos div de botoes
   divBotoes=document.getElementById('botoes');
-  divBotoes.style.margin="20px";
+  divBotoes.style.margin="5px";
   //alterando estido botoes
-  button.style('color','#cccccc');
-  button.style('cursor', 'pointer');
-  button.style('background','#202020');
-  button.style('font-weight','600');
-  button.style('font-size','15pt');
-  button.style('border-color','gray');
-  button.style('border-radius','5px');
-  button.style('border-width','2px');
-  
-  
-  
+  //criando uma classe para os botoes
+  var style = document.createElement('style');
+  style.type='text/css';
+  style.innerHTML = '.create-button{ margin:10px;width:180px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
+  document.getElementsByTagName('head')[0].appendChild(style);
+  button[0].class('create-button');
+  button[1].class('create-button');
 }
 
 function draw() {
@@ -52,8 +50,7 @@ function draw() {
     }
   }
   let divCanvas=document.getElementById("canvas");
-  button.mousePressed(limpaCelulas);
-  //button.position(divCanvas.offsetLeft,divCanvas.offsetTop+height);
+  button[0].mousePressed(limpaCelulas);
 }
 
 function mousePressed(){
