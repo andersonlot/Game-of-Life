@@ -1,5 +1,4 @@
 var celulas=[];
-var celulas_antigas=[];
 var tamanho_celulas=10;
 var linhas;
 var colunas;
@@ -9,7 +8,7 @@ const COR_ESCURA="#151515";
 const COR_CLARA="#c0b000";
 
 function setup() {
-  frameRate(10);
+  frameRate(3);
   canva=createCanvas(canva_width,400);
   canva.parent('canvas');
   linhas=height/tamanho_celulas;
@@ -20,7 +19,6 @@ function setup() {
       celulas[i][j]=false;
     }
   }
-  //criando uma classe para os botoes
   var style = document.createElement('style');
   style.innerHTML = '.create-button{ margin:10px;width:180px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
   document.getElementsByTagName('head')[0].appendChild(style);
@@ -36,7 +34,6 @@ function setup() {
   divBotoes.style.width=canva_width+"px";
   _loop=false;
 }
-
 function draw() {
   clear();
   background(COR_ESCURA);
@@ -56,12 +53,11 @@ function draw() {
   button[1].mousePressed(rodar);
   button[2].mousePressed(pausar);
   if(_loop){
-    celulas_antigas=celulas;
     var celulas_futuro=[];
     for(let i=0;i<linhas;i++){
       celulas_futuro[i]=[];
       for(let j=0;j<colunas;j++){
-        celulas_futuro[i][j]=calculaProxGeracao(celulas_antigas,i,j)
+        celulas_futuro[i][j]=calculaProxGeracao(celulas,i,j)
       }
     }
     celulas=celulas_futuro;
@@ -69,7 +65,6 @@ function draw() {
   }
   noLoop();
 }
-
 function mousePressed(){
   if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
     let celulaX=floor(mouseX/tamanho_celulas);
@@ -78,7 +73,6 @@ function mousePressed(){
   }
   loop();
 }
-
 function limpaCelulas(){
   for(let i=0;i<linhas;i++){
     celulas[i]=[];
@@ -88,14 +82,12 @@ function limpaCelulas(){
   }
   pausar();
 }
-
 function rodar(){
   _loop=true;
 }
 function pausar(){
   _loop=false;
 }
-
 function calculaProxGeracao(_celulas_antigas,i,j){
   var _celulas_antigas_=_celulas_antigas.slice();
   if(_celulas_antigas[i][j]===true){
@@ -112,7 +104,6 @@ function calculaProxGeracao(_celulas_antigas,i,j){
   }
   return false;
 }
-
 function vizinhosVivos(_celulas_antigas,i,j){
   var _vizinhosVivos=0;
   var _celulas_antigas_=_celulas_antigas.slice();
