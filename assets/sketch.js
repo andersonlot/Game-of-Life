@@ -71,7 +71,7 @@ function draw() {
   }
   noLoop();
 }
-function touchStarted() {
+function touchEnded() {
   if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
     let celulaX=floor(mouseX/tamanho_celulas);
     let celulaY=floor(mouseY/tamanho_celulas);
