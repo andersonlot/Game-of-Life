@@ -79,6 +79,7 @@ function touchEnded() {
   }
   loop();
 }
+/*
 function mousePressed(){
   if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
     let celulaX=floor(mouseX/tamanho_celulas);
@@ -87,6 +88,7 @@ function mousePressed(){
   }
   loop();
 }
+*/
 function limpaCelulas(){
   for(let i=0;i<linhas;i++){
     celulas[i]=[];
