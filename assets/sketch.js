@@ -71,11 +71,19 @@ function draw() {
   }
   noLoop();
 }
-function touchEnded() {
+function touchMoved() {
   if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
     let celulaX=floor(mouseX/tamanho_celulas);
     let celulaY=floor(mouseY/tamanho_celulas);
-    celulas[celulaY][celulaX]=!celulas[celulaY][celulaX];
+    celulas[celulaY][celulaX]=true;
+  }
+  loop();
+}
+function touchStarted() {
+  if(mouseX>0&&mouseX<width&&mouseY>0&&mouseY<height){
+    let celulaX=floor(mouseX/tamanho_celulas);
+    let celulaY=floor(mouseY/tamanho_celulas);
+    celulas[celulaY][celulaX]=true;
   }
   loop();
 }
