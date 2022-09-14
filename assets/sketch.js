@@ -16,12 +16,7 @@ function setup() {
   canva.parent('canvas');
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
-  for(let i=0;i<linhas;i++){
-    celulas[i]=[];
-    for(let j=0;j<colunas;j++){
-      celulas[i][j]=random()>0.95;
-    }
-  }
+  celulas=randomize(celulas);
   var style = document.createElement('style');
   style.innerHTML = '.create-button{ margin:10px;width:186.66px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
   document.getElementsByTagName('head')[0].appendChild(style);
@@ -31,8 +26,7 @@ function setup() {
   button[2] = createButton('Limpa Tudo');
   button[3] = createButton('+ Gen/s');
   button[4] = createButton('- Gen/s');
-  button[3].style("width","290px");
-  button[4].style("width","290px");
+  button[5]= createButton('Random')
   button.forEach(element => {
     element.parent('botoes');
     element.class('create-button');
@@ -69,6 +63,7 @@ function draw() {
   button[2].mousePressed(limpaCelulas);
   button[3].mousePressed(increaseFrameRate);
   button[4].mousePressed(decreaseFrameRate);
+  button[5].mousePressed(randomizeCells);
   if(_loop){
     geracao++;
     var celulas_futuro=[];
@@ -156,4 +151,18 @@ function increaseFrameRate(){
   FR=30;
   return;
 
+}
+
+function randomize(celulas){
+  for(let i=0;i<linhas;i++){
+    celulas[i]=[];
+    for(let j=0;j<colunas;j++){
+      celulas[i][j]=random()>0.95;
+    }
+  }
+  return celulas;
+}
+
+function randomizeCells(){
+  randomize(celulas);
 }
