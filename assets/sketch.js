@@ -17,8 +17,8 @@ function setup() {
   }
   canva=createCanvas(canva_width,400);
   canva.parent('canvas');
-  linhas=height/tamanho_celulas;
-  colunas=width/tamanho_celulas;
+  linhas=floor(height/tamanho_celulas);
+  colunas=floor(width/tamanho_celulas);
   celulas=randomize(celulas);
   var style = document.createElement('style');
   style.innerHTML = '.create-button{ margin:10px;width:'+(canva_width-40)/3+'px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
