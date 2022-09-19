@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 
-<head>
+<head lang="pt">
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="https://andersonlot.github.io/style.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,10 +63,12 @@
         <p>Nesse projeto, estou desenvolvendo o algoritmo do Jogo da Vida, do inglês Game of Life.</p>
         <p>O algoritmo consiste em representar um grupo de indivíduos (células, bactérias, etc.) que possuem uma regra
           para sobrevivência ou não no ambiente que estão inseridos a cada geração. </p>
-        <p>As regras mais conhecidas foram criadas por John Conway, que é o criador do Game of Life. Nelas, um indivíduo
-          precisa possuir 2 ou 3 vizinhos vivos para sobreviver à próxima geração. Se tiver menos, morre por solidão e
-          se tiver mais, morre por inanição (falta de alimentos por excesso de indivíduos). Além disso, um indivíduo morto pode ressurgir a vida quando
-          possuir 3 indivíduos vizinhos vivos, representnado a reprodução.</p>
+        <p>As regras mais conhecidas foram criadas por John Conway, que é o criador do Game of Life. As regras são:</p>
+        <ol>
+          <li class="texto">Uma célula viva precisa de 2 ou 3 vizinhas vivas para sobreviver à próxima geração.</li>
+          <li class="texto">Uma célula morta irá reviver na próxima geração se tiver 3 vizinhas vivas.</li>
+          <li class="texto">De qualquer outra forma, a célula permanecerá morta ou irá morrer.</li>
+        </ol>
         <p>O código e o desenvolvimento você pode acompanhar no meu <a class="link-texto"
             href="https://github.com/andersonlot/Game-of-Life">repositório</a> no Github.</p>
         <p>Abaixo você pode conferir o resultado do desenvolvimento até o momento: </p>
