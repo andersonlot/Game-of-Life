@@ -4,7 +4,7 @@ var linhas;
 var colunas;
 var _loop;
 var geracao=0;
-const canva_width=600;
+var canva_width=600;
 var COR_ESCURA;
 const COR_CLARA="#FEBF2C";
 var FR=3;
@@ -12,13 +12,16 @@ var FR=3;
 
 function setup() {
   COR_ESCURA=color(254,191,44);
+  if(windowWidth<600){
+    canva_width=windowWidth-70;
+  }
   canva=createCanvas(canva_width,400);
   canva.parent('canvas');
   linhas=height/tamanho_celulas;
   colunas=width/tamanho_celulas;
   celulas=randomize(celulas);
   var style = document.createElement('style');
-  style.innerHTML = '.create-button{ margin:10px;width:186.66px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
+  style.innerHTML = '.create-button{ margin:10px;width:'+(canva_width-40)/3+'px;height:40px;color:#cccccc;cursor:pointer;background:#202020;font-weight:600;border-color:gray;border-radius:4px;border-width:2px; }';
   document.getElementsByTagName('head')[0].appendChild(style);
   button=[];
   button[0] = createButton('Play');
